@@ -1,11 +1,9 @@
 requirejs.config({
     baseUrl: 'static',
-    urlArgs: '_=' +  (new Date()).getTime(),
+//    urlArgs: '_=' +  (new Date()).getTime(),
     waitSeconds: 60,
     paths: {
         jquery: 'js/libs/jquery-2.0.3',
-        'jquery-player': 'js/libs/jquery.jplayer',
-        'jquery-cookie': 'js/libs/jquery.cookie',
         utils: 'js/utils',
         underscore: 'js/libs/lodash',
         backbone: 'js/libs/backbone',
@@ -32,11 +30,8 @@ requirejs.config({
         bootstrap: {
             deps: ['jquery']
         },
-        'jquery-player': {
-            deps: ['jquery']
-        },
         app: {
-            deps: ['jquery', 'underscore', 'backbone', 'marionette', 'bootstrap', 'jquery-cookie']
+            deps: ['jquery', 'underscore', 'backbone', 'marionette', 'bootstrap']
         },
         controller: {
             deps: ['app']
@@ -44,8 +39,8 @@ requirejs.config({
     }
 });
 
-require(['backbone', 'marionette', 'handlebars', 'TrafficCop', 'jquery-player', 'app'],
-function (Backbone, Marionette, Handlebars, TrafficCop, JqueryPlayer, App){
+require(['backbone', 'marionette', 'handlebars', 'TrafficCop', 'app'],
+function (Backbone, Marionette, Handlebars, TrafficCop, App){
     'use strict';
 
     App.start();

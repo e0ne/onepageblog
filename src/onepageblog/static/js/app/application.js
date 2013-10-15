@@ -2,9 +2,10 @@ define(
 [
     'backbone',
     'js/app/views/archive',
-    'js/app/views/blogpost'
+    'js/app/views/blogpost',
+    'js/app/views/contacts'
 ],
-function(Backbone, ArchiveView, BlogpostView) {
+function(Backbone, ArchiveView, BlogpostView, ContactsView) {
     'use strict';
 
     var App = new Backbone.Marionette.Application();
@@ -22,13 +23,17 @@ function(Backbone, ArchiveView, BlogpostView) {
         },
         post: function(id){
             App.mainRegion.show(new BlogpostView({id: id}));
+        },
+        contacts: function(){
+            App.mainRegion.show(new ContactsView());
         }
     });
 
     var AppRouter = Backbone.Marionette.AppRouter.extend({
        appRoutes: {
            "": 'index',
-           "posts/:id": "post"
+           "posts/:id": "post",
+           "contacts": "contacts"
        }
    });
 

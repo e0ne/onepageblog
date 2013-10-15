@@ -44,7 +44,7 @@ class BlogPost(models.Model):
     """
     Blog post model.
     """
-    _title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     content = models.TextField()
     user = models.ForeignKey(User, related_name='+')
     created_on = models.DateTimeField(auto_created=True)
@@ -59,7 +59,7 @@ class BlogPost(models.Model):
         return text[:240]
 
     def __unicode__(self):
-        return self.post_title
+        return self.title
 
     class Meta:
         ordering = ["-created_on"]

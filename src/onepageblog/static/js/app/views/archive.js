@@ -17,9 +17,12 @@ function(Marionette, archiveTemplate, BlogPostThumb, BlogPosts){
 
         appendHtml: function(collectionView, itemView){
            collectionView.$("#content").append(itemView.el);
+        },
+
+        onRender: function(){
+            $('#home-link').addClass('active');
+            $('#contacts-link').removeClass('active');
         }
-
-
     });
 
     return ArchiveView;

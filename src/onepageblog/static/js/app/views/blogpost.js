@@ -11,7 +11,6 @@ function(Marionette, blogpostTemplate, BlogPost){
         },
 
         initialize: function(options){
-
             this.model.fetch({url: '/api/v1/posts/' + options.id + '?format=json'});
             this.model.on('sync', this.render);
         }
